@@ -8,13 +8,14 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
 public class FileVisitor extends SimpleFileVisitor<Path> {
+    private final HashCounter hashCounter;
     private final BufferedWriter writer;
     private boolean visitFailed;
     private String cause;
 
-    public FileVisitor(BufferedWriter writer) {
+    public FileVisitor(HashCounter hashCounter, BufferedWriter writer) {
+        this.hashCounter = hashCounter;
         this.writer = writer;
-        visitFailed = false;
     }
 
     public String getCause() {
@@ -25,9 +26,9 @@ public class FileVisitor extends SimpleFileVisitor<Path> {
         return visitFailed;
     }
 
-    private FileVisitResult processVisit(String fileName, boolean visitFileFailed) {
+    private FileVisitResult processVisit(Path fileName, boolean visitFileFailed) {
         try {
-            HashCounter.processHash(fileName, visitFileFailed, writer);
+            hashCounter.processHash(fileName, visitFileFailed, writer);
             return FileVisitResult.CONTINUE;
         } catch (WalkException e) {
             visitFailed = true;
@@ -37,11 +38,11 @@ public class FileVisitor extends SimpleFileVisitor<Path> {
     }
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)  {
-        return processVisit(file.toString(), false);
+        return processVisit(file, false);
     }
 
     @Override
     public FileVisitResult visitFileFailed(Path file, IOException exc) {
-        return processVisit(file.toString(), true);
+        return processVisit(file, true);
     }
 }

@@ -17,34 +17,35 @@ public abstract class AbstractWalk {
         try {
             this.inputFilePath = Path.of(inputFileName);
         } catch (InvalidPathException e) {
-            throw new WalkException("Error parsing input file name: " + e.getMessage());
+            throw new WalkException("Error parsing input file name.");
         }
         try {
             this.outputFilePath = Path.of(outputFileName);
         } catch (InvalidPathException e) {
-            throw new WalkException("Error parsing output file name: " + e.getMessage());
+            throw new WalkException("Error parsing output file name.");
         }
     }
 
     protected void walk() throws WalkException {
         createOutputFileParentDir();
         try (BufferedReader reader = Files.newBufferedReader(inputFilePath, StandardCharsets.UTF_8)) {
-            try (BufferedWriter writer = Files.newBufferedWriter(outputFilePath, StandardCharsets.UTF_8)) {
+            try (BufferedWriter writer = Files.newBufferedWriter(outputFilePath, StandardCharsets.UTF_8);) {
                 String line;
                 try {
                     while ((line = reader.readLine()) != null) {
                         walkImpl(line, writer);
                     }
                 } catch (IOException e) {
-                    throw new WalkException("Error while reading input file: "  + e.getMessage());
+                    throw new WalkException("Error while reading input file. "  + e.getMessage());
                 }
             } catch (IOException e) {
                 throw new WalkException(
-                        "Cannot open or create output file: '" + outputFilePath + "': " + e.getMessage()
+                        "Cannot open or create output file: '"
+                        + outputFilePath + "'."
                 );
             }
         } catch (IOException e) {
-            throw new WalkException("Cannot read input file '" + inputFilePath + "': " + e.getMessage());
+            throw new WalkException("Cannot read input file '" + inputFilePath + "'.");
         }
     }
 
@@ -54,9 +55,12 @@ public abstract class AbstractWalk {
             try {
                 Files.createDirectories(outputFileParentDir);
             } catch (FileAlreadyExistsException e) {
-                throw new WalkException("File with name '" + outputFileParentDir.toString() + "' already exists");
+                throw new WalkException(
+                        "File with name '" + outputFileParentDir.toString()
+                        + "' already exists. " + e.getMessage()
+                );
             } catch (IOException e) {
-                throw new WalkException("Error creating parent directory");
+                throw new WalkException("Error creating parent directory. " + e.getMessage());
             }
         }
     }
