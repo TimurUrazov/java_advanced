@@ -30,4 +30,3 @@ This folder contains two tasks:
 3. The `HelloUDPNonblockingServer` class must have functionality similar to HelloUDPServer, but all socket operations must be performed in a single thread.
 4. The implementation should not have active expectations, including through the Selector.
 5. Pay attention to highlighting the common code of the old and new implementation.
-6. _Bonus option (not implemented)_. The client and server can allocate O(number of threads) of memory before starting work. It is forbidden to allocate additional memory during operation.
