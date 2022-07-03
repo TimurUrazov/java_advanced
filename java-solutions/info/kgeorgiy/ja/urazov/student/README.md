@@ -1,7 +1,7 @@
 ## Student database query
 
 **Task**: Develop a [``StudentDB``](./StudentDB.java) class that searches the student database.
-The [``StudentDB``](./StudentDB.java) class must implement the [``StudentQuery``](./StudentQuery.java) interface (simple version) or [``GroupQuery``](./GroupQuery.java) (complex version).
+The [``StudentDB``](./StudentDB.java) class must implement the [``GroupQuery``](./GroupQuery.java).
 Each method must consist of exactly one statement. In this case, long statements should be split into several lines.  
 
 When performing the task, you should pay attention to: 
