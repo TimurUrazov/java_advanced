@@ -12,7 +12,7 @@ _Collections_
 **Multithreading:**
 
 5. [Iterative parallelism](./java-solutions/info/kgeorgiy/ja/urazov/concurrent) - _Synchronization primitives_
-6. [Parallel mapper](./java-solutions/info/kgeorgiy/ja/urazov/concurrent_2) - _Parallel mapping_
+6. [Parallel mapper](./java-solutions/info/kgeorgiy/ja/urazov/concurrent) - _Parallel mapping_
 7. [Web Crawler](./java-solutions/info/kgeorgiy/ja/urazov/crawler) - _ConcurrentUtils_
 
 **Client-server:**
