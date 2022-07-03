@@ -1,0 +1,15 @@
+#!/bin/bash
+
+SOURCE=../../java-advanced-2022
+MOD=info.kgeorgiy.ja.urazov
+
+cp -a ../java-solutions ${MOD}
+
+javac -d ./prod --module-path ${SOURCE}/artifacts/:${SOURCE}/lib --module-source-path . --module ${MOD}
+
+jar -c -f ${MOD}.jar -m MANIFEST.MF -C prod/${MOD} .
+
+rm -rf prod
+
+rm -rf ${MOD}
+
