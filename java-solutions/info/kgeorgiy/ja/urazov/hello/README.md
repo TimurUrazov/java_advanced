@@ -1,7 +1,5 @@
 ## HelloUPD
 
-This folder contains two tasks:
-
 **HelloUDP**: 
 
 1. Implement a class server class `HelloUDPServer` and a client classs `HelloUDPClient`, which shall communicate via UDP protocol.
