@@ -6,7 +6,7 @@ Homeworks from ITMO programming technologies course read by Georgy Korneev
 1. [Recursive file hasher](./java-solutions/info/kgeorgiy/ja/urazov/walk) - _File system_
 2. [Unmodifiable set on the array](./java-solutions/info/kgeorgiy/ja/urazov/arrayset) - 
 _Collections_
-3. [Student database query](./java-solutions/info/kgeorgiy/ja/urazov/student) - _Streams_  
+3. [Student database query](./java-solutions/info/kgeorgiy/ja/urazov/student) - _Streams_<br/>
 4-5. [Implementor](./java-solutions/info/kgeorgiy/ja/urazov/implementor) - _Reflection, Jar, JavaDoc_
 
 **Multithreading:**
