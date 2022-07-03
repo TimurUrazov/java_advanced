@@ -49,5 +49,4 @@
       ```
       
     - To load pages, you need to use the `CachingDownloader` implementation from the tests.
-5. **Task versions**
-    - restrictions on the number of simultaneous downloads from a single host (perHost >= downloads) must be taken into account. 
+5. Restrictions on the number of simultaneous downloads from a single host (perHost >= downloads) must be taken into account.
