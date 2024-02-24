@@ -32,12 +32,12 @@
     }
     ```
 
-    - The `run` method must compute the function f on each of the specified arguments (`args`) in parallel.
+    - The `map` method must compute the function f on each of the specified arguments (`args`) in parallel.
     - The close method should stop all worker threads.
     - The `ParallelMapperImpl(int threads)` constructor creates threads of worker threads that can be used for parallelization.
     - A single `ParallelMapperImpl` can be accessed by multiple clients at the same time.
     - Tasks for execution must be accumulated in the queue and processed on a first-come, first-served basis.
-    - There should be no active expectations in the implementation.
+    - There should be no busy waiting in the implementation.
     
 2. Modify the `IterativeParallelism` class so that it can use ParallelMapper.
     - Add the `IterativeParallelism(Parallel Mapper)` constructor.
